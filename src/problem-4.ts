@@ -13,20 +13,92 @@
   // Sample Output 2:--> 24;
 
   type Circle = {
-    shape: string;
+    shape: "circle";
     radius: number;
   };
   type Rectangle = {
-    shape: string;
+    shape: "rectangle";
     height: number;
     width: number;
   };
 
-  const calculateShapeArea = (areaType: Circle | Rectangle): number => {
+  type AreaType = Circle | Rectangle;
+
+  const calculateShapeArea = (areaType: AreaType): number => {
+    let shapeArea: number = 0;
     if (areaType.shape === "circle") {
-      return 4;
-    } return 4;
+      shapeArea = Math.PI * (areaType.radius * areaType.radius);
+    } else if (areaType.shape === "rectangle") {
+      shapeArea = areaType.height * areaType.width;
+    }
+    return shapeArea;
   };
+
+  const circle: Circle = {
+    shape: "circle",
+    radius: 5,
+  };
+  const rectangle: Rectangle = {
+    shape: "rectangle",
+    height: 5,
+    width: 5,
+  };
+
+  console.log(
+    "Output from the conditional Statement:",
+    calculateShapeArea(circle)
+  );
+  console.log(
+    "Output from the conditional Statement:",
+    calculateShapeArea(rectangle)
+  );
+
+  // the above code(conditional statement) is the first one which i have tried first, but in the conditional steatement i got a problem: i couldnt access the radius property in the areaType. I thought this is not the way to solve the issue, so i gave up, made it commented and tried the second block of code below, which is mainly class based. but later on i found out that the i only can access the property of these types there(first code) if i write "literal type" instead of "string" for the shape peoperty to match the condition. then i solved the problem an uncommented it. So judge which one you prefer, i didnt want to remove any of these code as both are the result of my time and effort.
+
+  //Thanks for reading the looooong comment..! <3
+
+  //
+  class Parent {
+    constructor(public shape: string) {
+      this.shape = shape;
+    }
+    getArea() {
+      console.log("output the area");
+    }
+  }
+
+  class TheCircle extends Parent {
+    constructor(shape: string, public radius: number) {
+      super(shape);
+      this.radius = radius;
+    }
+    circleArea() {
+      return Math.PI * (this.radius * this.radius);
+    }
+  }
+
+  class TheRectangle extends Parent {
+    constructor(shape: string, public height: number, public width: number) {
+      super(shape);
+      this.height = height;
+      this.width = width;
+    }
+    rectangleArea() {
+      return this.height * this.width;
+    }
+  }
+
+  const circleArea = new TheCircle("circle", 1);
+  const rectangleArea = new TheRectangle("rectangle", 5, 5);
+
+  console.log(
+    "Printing from the class base solution:",
+    circleArea.circleArea()
+  );
+  console.log(
+    "Printing from the class base solution:",
+    rectangleArea.rectangleArea()
+  );
 
   //
 }
