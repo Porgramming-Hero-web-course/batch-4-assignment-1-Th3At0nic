@@ -53,7 +53,7 @@
     calculateShapeArea(rectangle)
   );
 
-  // the above code(conditional statement) is the first one which i have tried first, but in the conditional steatement i got a problem: i couldnt access the radius property in the areaType. I thought this is not the way to solve the issue, so i gave up, made it commented and tried the second block of code below, which is mainly class based. but later on i found out that the i only can access the property of these types there(first code) if i write "literal type" instead of "string" for the shape peoperty to match the condition. then i solved the problem an uncommented it. So judge which one you prefer, i didnt want to remove any of these code as both are the result of my time and effort.
+  // the above code(conditional statement) is the first one which i have tried first, but in the conditional steatement i got a problem: i couldnt access the radius property in the areaType. I thought this is not the way to solve the issue, so i gave up, made it commented and tried the second block of code below, which is mainly class based. but later on i found out that the i only can access the property of these types there(first code) if i write "literal type" instead of "string" for the shape peoperty to match the condition. then i solved the problem an uncommented it. So judge which one you prefer, i didnt want to remove any of these code as both are the result of my time and effort. Though class based solution is not the efficient way for this problem.
 
   //Thanks for reading the looooong comment..! <3
 
@@ -61,9 +61,6 @@
   class Parent {
     constructor(public shape: string) {
       this.shape = shape;
-    }
-    getArea() {
-      console.log("output the area");
     }
   }
 
