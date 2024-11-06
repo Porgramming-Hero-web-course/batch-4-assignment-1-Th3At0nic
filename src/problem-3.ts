@@ -7,12 +7,12 @@
   //
 
   const countWordOccurrences = (sentence: string, word: string): number => {
-    const targetWord = new RegExp(`\\b${word}\\b`, "gi");
+    const targetWord = new RegExp(`\\b${word}\\b`, "gi"); // here that \\b for words boundery,g for global srch, i for case-insensitivity.
     const matchedCount = sentence.match(targetWord);
     return matchedCount ? matchedCount.length : 0;
   };
 
-  const sampleSentese: string = "TypeScript is great. I love TypeScript. TypeSCrIpt is not typescriptsssss!";
+  const sampleSentese: string = "TypeScript is great. I love TypeScript. TypeSCrIpt is not typescriptssssss! Do you love TypeScript??";
   const sampleWord: string = "typescRIpt";
   
   console.log(countWordOccurrences(sampleSentese, sampleWord))
