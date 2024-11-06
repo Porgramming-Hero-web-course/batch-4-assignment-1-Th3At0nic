@@ -12,7 +12,7 @@
     return matchedCount ? matchedCount.length : 0;
   };
 
-  const sampleSentese: string = "TypeScript is great. I love TypeScript. TypeSCrIpt is not typescriptssssss! Do you love TypeScript tttttypescript??";
+  const sampleSentese: string = "TypeScript is great. I love TypeScript. TypeSCrIpt is not typescriptsss! Do you love TypeScript tttttypescript??";
   const sampleWord: string = "typescRIpt";
   
   console.log(countWordOccurrences(sampleSentese, sampleWord))
