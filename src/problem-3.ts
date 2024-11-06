@@ -7,7 +7,7 @@
   //
 
   const countWordOccurrences = (sentence: string, word: string): number => {
-    const targetWord = new RegExp(`${word}`, "gi"); //that g for global srch,i for case-insensitivity, no word boundery here, so partially matched words will be counted as well.
+    const targetWord = new RegExp(`${word}`, "gi"); //that g for global srch,i for case-insensitivity, no word boundery here, means partially matched words will be counted as well.
     const matchedCount = sentence.match(targetWord);
     return matchedCount ? matchedCount.length : 0;
   };
