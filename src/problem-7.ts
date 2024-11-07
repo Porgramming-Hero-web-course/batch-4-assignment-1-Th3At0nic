@@ -9,9 +9,20 @@
   //
   //solution:
 
+  class Car {
+    constructor(
+      public make: string,
+      public model: string,
+      public year: number
+    ) {}
+    getCarAge() {
+      return new Date().getFullYear() - this.year; //extracting only year number from Date func
+    }
+  }
 
-  
+  const carAge = new Car("Toyota", "Premio", 2011);
 
+  console.log(carAge.getCarAge());
 
   //
 }
