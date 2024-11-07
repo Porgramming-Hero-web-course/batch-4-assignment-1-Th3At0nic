@@ -27,20 +27,20 @@
   const calculateShapeArea = (areaType: AreaType): number => {
     let shapeArea: number = 0;
     if (areaType.shape === "circle") {
-      shapeArea = Math.PI * (areaType.radius * areaType.radius);
+      shapeArea = Math.PI * (areaType.radius * areaType.radius); //the rule of getting circle area: (PI * r^2)
     } else if (areaType.shape === "rectangle") {
-      shapeArea = areaType.height * areaType.width;
+      shapeArea = areaType.height * areaType.width; //rule of getting rectangle area = height * width
     }
     return shapeArea;
   };
 
   const circle: Circle = {
     shape: "circle",
-    radius: 5,
+    radius: 3,
   };
   const rectangle: Rectangle = {
     shape: "rectangle",
-    height: 5,
+    height: 6,
     width: 5,
   };
 
@@ -70,7 +70,7 @@
       this.radius = radius;
     }
     circleArea() {
-      return Math.PI * (this.radius * this.radius);
+      return Math.PI * (this.radius * this.radius);  //the rule of getting circle area: (PI * r^2)
     }
   }
 
@@ -81,12 +81,12 @@
       this.width = width;
     }
     rectangleArea() {
-      return this.height * this.width;
-    }
+      return this.height * this.width; //rule of getting rectangle area = height * width
+    }//rule of getting rectangle area = height * width
   }
 
-  const circleArea = new TheCircle("circle", 1);
-  const rectangleArea = new TheRectangle("rectangle", 5, 5);
+  const circleArea = new TheCircle("circle", 2);
+  const rectangleArea = new TheRectangle("rectangle", 4, 5);
 
   console.log(
     "Printing from the class base solution:",
