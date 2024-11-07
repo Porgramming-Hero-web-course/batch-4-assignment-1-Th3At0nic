@@ -70,7 +70,7 @@
       this.radius = radius;
     }
     circleArea() {
-      return Math.PI * (this.radius * this.radius);  //the rule of getting circle area: (PI * r^2)
+      return Math.PI * (this.radius * this.radius);  //the rule of getting circle area:  (PI * r^2)
     }
   }
 
