@@ -70,4 +70,41 @@ fetchData()
 
 ---
 
+### 3.Async/Await: A Synchronous-Looking Solution to Asynchronous Code
+
+#### What is async/await?
+
+**Async/await** is built on the top of **Promises**. **Async/await** is different with **Promises** in the appearance but same in the background or underlying code. **Async/await** makes more readable and maintainable code which makes the key differences between **Promises** and the **async/await**. Using **async** function makes typescript to expect the return type will be a **Promise** and allow you to use **await** inside the **async** function. `Await` pauses the operation or execution until the **Promises** resolves.
+
+#### Examples of Async/Await in Typescript:
+
+Lets rewrite the same example using async/await:
+
+```typescript
+async function fetchData(): Promise<string> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Data fetched!");
+    }, 1000);
+  });
+}
+
+async function getData() {
+  try {
+    const data = await fetchData();
+    console.log(data); // Output: Data fetched!
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+getData();
+```
+
+#### Advantages of Async/Await: 
+**1. Readability:** The code will be more readable as it more looks like synchronous code so it is easier to understand.
+**2. Error Handling:** As the code is more readable and looks more like synchronous code it gives you to handle error with try/catch.
+**3. Debugging:** Async/Await code is easier to step throw in a debugger, as the call stack is simpler.
+
+---
 
