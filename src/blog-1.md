@@ -108,7 +108,9 @@ getData();
 #### Advantages of Async/Await:
 
 **1. Readability:** The code will be more readable as it more looks like synchronous code so it is easier to understand.
+<br>
 **2. Error Handling:** As the code is more readable and looks more like synchronous code it gives you to handle error with try/catch.
+<br>
 **3. Debugging:** `Async/Await` code is easier to step throw in a debugger, as the call stack is simpler.
 
 ---
@@ -187,19 +189,26 @@ execute();
 Typescripts type is making asynchronous programming more safer than others
 **1. Return Types:** TypeScript always makes the async function to return a Promise, which makes TypeScript catch error if you mistakenly handle then as synchronous way.
 
+<br>
+
 **2. Typed Promise:** If you define the data type being passed which will give more clarity and reducing the run time error.
+
+<br>
 
 For example if `fetchData` is expected to return a `string`, TypeScript will apply that type which will help to prevent errors.
 
 ---
 
 ### 6. Common Async/Await risk/danger/difficulties and Best Practices
-* **Avoid unnecessary `await` inside loops:** Instead of running `await` repeatedly use `Promise.all` for tasks which is not dependent on each other.
 
-* **Handle error at multiple levels:** You can use `try/catch` both at individual async function calls and globally which enhance error controlling.
+- **Avoid unnecessary `await` inside loops:** Instead of running `await` repeatedly use `Promise.all` for tasks which is not dependent on each other.
+
+<br>
+
+- **Handle error at multiple levels:** You can use `try/catch` both at individual async function calls and globally which enhance error controlling.
 
 ---
 
 ### Conclusion
 
-The shift from `Callbacks` to `Promises` and finally to the `Async/Await` is completely a natural progress toward code's  readability, easy maintainability and easy error handling. Writing asynchronous code like synchronous code with extra features of `TypeScript` such as `type-annotation` or type-safety makes it more powerful, simpler, robust, which is why all the modern developer in the current world prefer the `async/await` rather than others way. Being a master of `async/await` will improve your skills and ability to write cleaner, more readable and maintainable code in TypeScript.
+The shift from `Callbacks` to `Promises` and finally to the `Async/Await` is completely a natural progress toward code's readability, easy maintainability and easy error handling. Writing asynchronous code like synchronous code with extra features of `TypeScript` such as `type-annotation` or type-safety makes it more powerful, simpler, robust, which is why all the modern developer in the current world prefer the `async/await` rather than others way. Being a master of `async/await` will improve your skills and ability to write cleaner, more readable and maintainable code in TypeScript.
