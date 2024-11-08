@@ -1,5 +1,9 @@
 <!--this blog is not that much refined or professional but you might think that this so called "well-structured" blog i have written is copied from chatGPT or somewhere else, but i swear in this total assignment i never copied, before writing this blog i carefully read two article on this topic, one is from online anther one is created by the chatGPT, after reading carefully i started writing this blog. But the idea of the outline or point or structure  i took it from the chapGpt to make it look more professional as trying to practice the best, which will enhance my learning. I wrote it on my own voice/word after reading/understanding each block from the chatGPT, honestly speaking. -->
 
+<!-- and i choose this topic to write a blog because i have a old frustration on async/await and still have a strong weakness, thought reading and writing a blog on it will help me to get out of this freaking weakness as well -->
+
+<!-- please read my comments above -->
+
 # Handling Asynchronous Operations Using Async/Await Over Callbacks and Promises in TypeScript
 
 ### Introduction: The Need for Asynchronous Programming
@@ -101,10 +105,99 @@ async function getData() {
 getData();
 ```
 
-#### Advantages of Async/Await: 
+#### Advantages of Async/Await:
+
 **1. Readability:** The code will be more readable as it more looks like synchronous code so it is easier to understand.
 **2. Error Handling:** As the code is more readable and looks more like synchronous code it gives you to handle error with try/catch.
 **3. Debugging:** Async/Await code is easier to step throw in a debugger, as the call stack is simpler.
 
 ---
 
+### 4. Comparing Callbacks, Promises, and Async/Await: A Unified Example
+
+To see the real differences, lets look at some examples where multiple asynchronous tasks need to run one after one. Heres how the same task flow would look with each approach.
+
+#### Using CallBacks
+
+```typescript
+function fetchData(callback: (data: string) => void) {
+  setTimeout(() => callback("Step 1"), 1000);
+}
+function processData(data: string, callback: (result: string) => void) {
+  setTimeout(() => callback(data + " processed"), 1000);
+}
+function displayResult(result: string) {
+  console.log(result);
+}
+
+fetchData((data) => {
+  processData(data, (processedData) => {
+    displayResult(processedData); // Result after 2 seconds: Step 1 processed
+  });
+});
+```
+
+#### Using Promises
+
+```typescript
+function fetchData(): Promise<string> {
+  return new Promise((resolve) => setTimeout(() => resolve("Step 1"), 1000));
+}
+function processData(data: string): Promise<string> {
+  return new Promise((resolve) =>
+    setTimeout(() => resolve(data + " processed"), 1000)
+  );
+}
+
+fetchData()
+  .then((data) => processData(data))
+  .then((result) => console.log(result))
+  .catch(console.error);
+```
+
+#### Using Async/Await
+
+```typescript
+async function fetchData(): Promise<string> {
+  return new Promise((resolve) => setTimeout(() => resolve("Step 1"), 1000));
+}
+async function processData(data: string): Promise<string> {
+  return new Promise((resolve) =>
+    setTimeout(() => resolve(data + " processed"), 1000)
+  );
+}
+
+async function execute() {
+  try {
+    const data = await fetchData();
+    const result = await processData(data);
+    console.log(result); // Output: Step 1 processed
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+execute();
+```
+
+### 5. TypeScript-Specific Features with Async/Await
+
+Typescripts type is making asynchronous programming more safer than others
+**1. Return Types:** Typescript always makes the async function to return a Promise, which makes TypeScript catch error if you mistakenly handle then as synchronous way.
+
+**2. Typed Promise:** If you define the data type being passed which will give more clarity and reducing the run time error.
+
+For example if `fetchData` is expected to return a `string`, TypeScript will apply that type which will help to prevent errors.
+
+---
+
+### 6. Common Async/Await risk/danger/difficulties and Best Practices
+* **Avoid unnecessary `await` inside loops:** Instead of running `await` repeatedly use `Promise.all` for tasks which is not dependent on each other.
+
+* **Handle error at multiple levels:** You can use `try/catch` both at individual async function calls and globally which enhance error controlling.
+
+---
+
+### Conclusion
+
+The shift from `Callbacks` to `Promises` and finally to the `Async/Await` is completely a natural progress toward code's  readability, easy maintainability and easy error handling. Writing asynchronous code like synchronous code with extra features of `TypeScript` such as `type-annotation` or type-safety makes it more powerful, simpler, robust, which is why all the modern developer in the current world prefer the `async/await` rather than others way. Being a master of `async/await` will improve your skills and ability to write cleaner, more readable and maintainable code in TypeScript.
