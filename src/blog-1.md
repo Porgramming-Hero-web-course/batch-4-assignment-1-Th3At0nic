@@ -8,9 +8,9 @@
 
 ### Introduction: The Need for Asynchronous Programming
 
-In modern JavaScript development, handling **asynchronous** task is almost unavoidable. From retrieving the data from the API and showing to the UI and reading files to handle user interactions, asynchronous operation allow you to run the asynchronous function or task in the background while allowing other blocks of code to make the user interface more smooth and functional. Asynchronous operation is needed when it takes some times to load the data from an API.
+In modern JavaScript development, handling **asynchronous** task is almost unavoidable. From retrieving the data from the API and showing to the UI and reading files to handle user interactions, asynchronous operation allow you to run the asynchronous function or task in the background while allowing other blocks of code to run to make/keep the user interface smooth and functional. Asynchronous operation is needed when it takes some times to load the data from an API or other tasks which need some time.
 
-But how we handle this operation has evolved over times. The journey started from the **callback**, then moved to the `Promise`, and has now reached to `async/await`. This makes the asynchronous operation more powerful than ever and easy to read and maintain the code.
+But how we handle this operation has evolved over times. The journey started from the `callback`, then moved to the `Promise`, and has now reached to `async/await`. This makes the asynchronous operation more powerful than ever and easy to read and maintain the code.
 
 Lets explore how the each approach works and how the `async/await` makes the differences, why `async/await` is preferred and finally how **TypeScript** enhanced the experience.
 
@@ -189,8 +189,10 @@ execute();
 Typescripts type is making asynchronous programming more safer than others
 **1. Return Types:** TypeScript always makes the async function to return a Promise, which makes TypeScript catch error if you mistakenly handle then as synchronous way.
 <br>
+
 **2. Typed Promise:** If you define the data type being passed which will give more clarity and reducing the run time error.
 <br>
+
 For example if `fetchData` is expected to return a `string`, TypeScript will apply that type which will help to prevent errors.
 
 ---
@@ -199,6 +201,7 @@ For example if `fetchData` is expected to return a `string`, TypeScript will app
 
 - **Avoid unnecessary `await` inside loops:** Instead of running `await` repeatedly use `Promise.all` for tasks which is not dependent on each other.
 <br>
+
 - **Handle error at multiple levels:** You can use `try/catch` both at individual async function calls and globally which enhance error controlling.
 
 ---
