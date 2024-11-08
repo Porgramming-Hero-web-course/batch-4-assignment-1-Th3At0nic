@@ -64,3 +64,10 @@ fetchData()
   });
 ```
 
+#### Why Promises are better than Callbacks:
+
+**Promises** straighten the nested structure of **async** calls, making it more easier to read, maintain and error handling. Still chaining the multiple **Promises** become very difficult to read, maintain and handling error when working on the large scale project. This is where **async/await** plays the crucial role to make it more simplified.
+
+---
+
+
