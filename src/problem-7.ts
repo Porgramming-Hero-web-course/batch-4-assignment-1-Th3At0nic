@@ -20,7 +20,7 @@
     }
   }
 
-  const carAge = new Car("Toyota", "Premio", 2011);
+  const carAge = new Car("Toyota", "Premio", 2019);
 
   console.log(carAge.getCarAge());
 

@@ -12,7 +12,7 @@
     return sumOfNumbers;
   };
 
-  const numbersArray: number[] = [1, 2, 3, 4, 5, 6, 7];
+  const numbersArray: number[] = [1, 2, 3, 4, 3, 4];
 
   console.log(sumArray(numbersArray));
 

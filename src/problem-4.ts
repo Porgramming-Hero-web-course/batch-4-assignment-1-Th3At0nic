@@ -86,7 +86,7 @@
   }
 
   const circleArea = new TheCircle("circle", 2);
-  const rectangleArea = new TheRectangle("rectangle", 4, 5);
+  const rectangleArea = new TheRectangle("rectangle", 2, 5);
 
   console.log(
     "Printing from the class base solution:",

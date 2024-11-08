@@ -34,9 +34,9 @@
     email: "rahat@gmail.com",
   };
   const updatPerson: Partial<Profile> = {
-    name: "matin",
+    // name: "matin",
     age: 55,
-    // email: "matin@gmail.com",
+    email: "matin@gmail.com",
   };
 
   console.log(updateProfile(person1, updatPerson));
