@@ -10,9 +10,9 @@
 
 In modern JavaScript development, handling **asynchronous** task is almost unavoidable. From retrieving the data from the API and showing to the UI and reading files to handle user interactions, asynchronous operation allow you to run the asynchronous function or task in the background while allowing other blocks of code to make the user interface more smooth and functional. Asynchronous operation is needed when it takes some times to load the data from an API.
 
-But how we handle this operation has evolved over times. The journey started from the **callback**, then moved to the **promise**, and has now reached to **async/await**. This makes the asynchronous operation more powerful than ever and easy to read and maintain the code.
+But how we handle this operation has evolved over times. The journey started from the **callback**, then moved to the `Promise`, and has now reached to `async/await`. This makes the asynchronous operation more powerful than ever and easy to read and maintain the code.
 
-Lets explore how the each approach works and how the **async/await** makes the differences, why **async/await** is preferred and finally how **TypeScript** enhanced the experience.
+Lets explore how the each approach works and how the `async/await` makes the differences, why `async/await` is preferred and finally how **TypeScript** enhanced the experience.
 
 ### 1. Callback: The Oldest Approach
 
@@ -36,7 +36,7 @@ fetchData((data) => {
 
 ### Challenges with Callbacks:
 
-When **callback** works this can make a real problem called **"callback hell"**. This means when the nested layers of callbacks is implemented this makes code more hard coded and difficult to read, maintain and debug the code. Error handling also is trickier and tough job as you have to make sure the error is distributed correctly withing each callbacks.
+When **callback** works this can make a real problem called **`"callback hell"`**. This means when the nested layers of callbacks is implemented this makes code more hard coded and difficult to read, maintain and debug the code. Error handling also is trickier and tough job as you have to make sure the error is distributed correctly withing each callbacks.
 
 ---
 
@@ -44,9 +44,9 @@ When **callback** works this can make a real problem called **"callback hell"**.
 
 #### What Are Promises?
 
-Promise function provide a cleaner way to handle asynchronous operations. Promise function replaces the complex structure of Callback functions with a more readable structure which is more easy to maintain and easy and clean error handling. Promises represents a task which might be executed later. Promises also provides two parameter called **resolve** and **reject**. Here that **resolve** returns the output which Completed Successfully. And the **reject** returns the the fail massage with an **error**.
+Promise function provide a cleaner way to handle asynchronous operations. Promise function replaces the complex structure of Callback functions with a more readable structure which is more easy to maintain and easy and clean error handling. Promises represents a task which might be executed later. Promises also provides two parameter called `resolve` and `reject`. Here that `resolve` returns the output which Completed Successfully. And the `reject` returns the the fail massage with an `error`.
 
-#### Examples of Promises in Typescript:
+#### Examples of Promises in TypeScript:
 
 Here is the same example above using **Promises**:
 
@@ -70,7 +70,7 @@ fetchData()
 
 #### Why Promises are better than Callbacks:
 
-**Promises** straighten the nested structure of **async** calls, making it more easier to read, maintain and error handling. Still chaining the multiple **Promises** become very difficult to read, maintain and handling error when working on the large scale project. This is where **async/await** plays the crucial role to make it more simplified.
+**Promises** straighten the nested structure of `async` calls, making it more easier to read, maintain and error handling. Still chaining the multiple **Promises** become very difficult to read, maintain and handling error when working on the large scale project. This is where `async/await` plays the crucial role to make it more simplified.
 
 ---
 
@@ -78,11 +78,11 @@ fetchData()
 
 #### What is async/await?
 
-**Async/await** is built on the top of **Promises**. **Async/await** is different with **Promises** in the appearance but same in the background or underlying code. **Async/await** makes more readable and maintainable code which makes the key differences between **Promises** and the **async/await**. Using **async** function makes typescript to expect the return type will be a **Promise** and allow you to use **await** inside the **async** function. `Await` pauses the operation or execution until the **Promises** resolves.
+**`Async/await`** is built on the top of `Promises`. `Async/await` is different with `Promises` in the appearance but same in the background or underlying code. `Async/await` makes more readable and maintainable code which makes the key differences between `Promises` and the `async/await`. Using `async` function makes TypeScript to expect the return type will be a `Promise` and allow you to use `await` inside the `async` function. `Await` pauses the operation or execution until the `Promises` resolves.
 
-#### Examples of Async/Await in Typescript:
+#### Examples of Async/Await in TypeScript:
 
-Lets rewrite the same example using async/await:
+Lets rewrite the same example using `async/await`:
 
 ```typescript
 async function fetchData(): Promise<string> {
@@ -109,7 +109,7 @@ getData();
 
 **1. Readability:** The code will be more readable as it more looks like synchronous code so it is easier to understand.
 **2. Error Handling:** As the code is more readable and looks more like synchronous code it gives you to handle error with try/catch.
-**3. Debugging:** Async/Await code is easier to step throw in a debugger, as the call stack is simpler.
+**3. Debugging:** `Async/Await` code is easier to step throw in a debugger, as the call stack is simpler.
 
 ---
 
@@ -180,10 +180,12 @@ async function execute() {
 execute();
 ```
 
+---
+
 ### 5. TypeScript-Specific Features with Async/Await
 
 Typescripts type is making asynchronous programming more safer than others
-**1. Return Types:** Typescript always makes the async function to return a Promise, which makes TypeScript catch error if you mistakenly handle then as synchronous way.
+**1. Return Types:** TypeScript always makes the async function to return a Promise, which makes TypeScript catch error if you mistakenly handle then as synchronous way.
 
 **2. Typed Promise:** If you define the data type being passed which will give more clarity and reducing the run time error.
 
