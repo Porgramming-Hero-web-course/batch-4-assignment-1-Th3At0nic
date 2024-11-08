@@ -186,7 +186,7 @@ execute();
 
 ### 5. TypeScript-Specific Features with Async/Await
 
-Typescripts type is making asynchronous programming more safer than others
+Typescripts type is making asynchronous programming more safer than others. <br>
 **1. Return Types:** TypeScript always makes the async function to return a Promise, which makes TypeScript catch error if you mistakenly handle then as synchronous way.
 <br>
 
@@ -200,7 +200,7 @@ For example if `fetchData` is expected to return a `string`, TypeScript will app
 ### 6. Common Async/Await risk/danger/difficulties and Best Practices
 
 - **Avoid unnecessary `await` inside loops:** Instead of running `await` repeatedly use `Promise.all` for tasks which is not dependent on each other.
-<br>
+  <br>
 
 - **Handle error at multiple levels:** You can use `try/catch` both at individual async function calls and globally which enhance error controlling.
 
